@@ -17,7 +17,6 @@
 	
 	canvas.addEventListener('mousedown', function(e){
 		allowDraw = true
-		ctx.moveTo(e.clientX, e.clientY)
 	})
 	canvas.addEventListener('mousemove', draw)
 	canvas.addEventListener('mouseup', function(){
@@ -30,9 +29,14 @@
 	 */
 	function draw(e){
 		if(allowDraw){
+			if(! drawingStarted){
+				ctx.beginPath()
+				ctx.moveTo(e.clientX, e.clientY)
+				drawingStarted = true
+			}
+			
 			const x = e.clientX
 			const y = e.clientY
-			// ctx.beginPath()
 			ctx.lineWidth = 16
 			ctx.lineJoin="round";
 			ctx.lineTo(x, y)
