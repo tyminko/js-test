@@ -32,6 +32,7 @@
 			if(! drawingStarted){
 				ctx.moveTo(e.clientX, e.clientY)
 				ctx.beginPath()
+				
 				drawingStarted = true
 			}
 			
