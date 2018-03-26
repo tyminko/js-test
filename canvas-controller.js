@@ -11,7 +11,6 @@
 	const angle360 = Math.PI * 2
 	
 	ctx.lineWidth = 16
-	
 	canvas.width = window.innerWidth
 	canvas.height = window.innerHeight
 	
@@ -29,20 +28,20 @@
 	 */
 	function draw(e){
 		if(allowDraw){
+			
 			if(! drawingStarted){
-				ctx.beginPath()
 				ctx.moveTo(e.clientX, e.clientY)
+				ctx.beginPath()
 				drawingStarted = true
 			}
 			
 			const x = e.clientX
 			const y = e.clientY
 			ctx.lineWidth = 16
+			ctx.strokeStyle = 'rgba(0,0,0,0.05)'
 			ctx.lineJoin="round";
 			ctx.lineTo(x, y)
 			ctx.stroke()
-			// lastBrushPosition.x = x
-			// lastBrushPosition.y = y
 		}
 	}
 })()
